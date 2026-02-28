@@ -307,6 +307,11 @@
 
             exibirModalPix({ total: totalFinal, pixEMV });
 
+            // ── Meta Pixel: evento de conversão Purchase ──
+            if (typeof fbq === 'function') {
+                fbq('track', 'Purchase', { value: totalFinal, currency: 'BRL' });
+            }
+
         } catch (err) {
             console.error('[CHECKOUT] Erro:', err.message);
             exibirModalErro(err.message || 'Verifique seus dados e tente novamente.');
