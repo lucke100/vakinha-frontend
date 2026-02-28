@@ -1,0 +1,112 @@
+/* ===== SEARCH BAR INLINE ===== */
+/* Adicionado no final do styles.css */
+
+/* Wrapper da barra — fica dentro do <header> */
+.search-bar-overlay {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    background: white;
+    border-top: 1px solid transparent;
+}
+
+/* Estado aberto */
+.search-bar-overlay.open {
+    max-height: 68px;
+    opacity: 1;
+    border-top-color: #e8e8e8;
+}
+
+.search-bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    height: 68px;
+}
+
+.search-bar-icon {
+    flex-shrink: 0;
+}
+
+.search-bar-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 500;
+    color: #1a1a1a;
+    background: transparent;
+    caret-color: #31B475;
+}
+
+.search-bar-input::placeholder {
+    color: #aaa;
+    font-weight: 400;
+}
+
+/* Remove o X nativo do tipo search */
+.search-bar-input::-webkit-search-cancel-button,
+.search-bar-input::-webkit-search-decoration {
+    display: none;
+}
+
+.search-bar-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    color: #888;
+    cursor: pointer;
+    border-radius: 50%;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+}
+
+.search-bar-close:hover {
+    background: #f0f0f0;
+    color: #333;
+}
+
+/* Quando a barra está aberta, escurece levemente o fundo da página */
+.search-overlay-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    z-index: 99;
+    animation: fadeInBackdrop 0.2s ease;
+}
+
+.search-overlay-backdrop.visible {
+    display: block;
+}
+
+@keyframes fadeInBackdrop {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Garante que o header fique acima do backdrop */
+.header {
+    position: relative;
+    z-index: 100;
+}
+
+/* Lupa ativa: muda cor */
+.mobile-search-btn.active svg {
+    stroke: #1a7a4a;
+}

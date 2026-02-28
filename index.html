@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJUDA HUMANITÁRIA | ZONA DA MATA - MG | Vakinha</title>
+  <meta name="description"
+    content="As fortes chuvas que atingiram a Zona da Mata mineira deixaram milhares de famílias em situação de emergência. Ajude agora!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="/" class="logo-link" id="logo-link">
+        <img src="assets/logo-vakinha-original.webp" alt="Vakinha" id="logo-img" style="height:38px;width:auto">
+      </a>
+
+      <nav class="nav-desktop" id="nav-desktop">
+        <div class="nav-item dropdown" id="nav-como-ajudar">
+          <button class="nav-btn" id="btn-como-ajudar">Como ajudar <span class="arrow">▾</span></button>
+          <div class="dropdown-menu" id="dropdown-como-ajudar">
+            <a href="https://www.vakinha.com.br/como-ajudar" class="dropdown-item">Como ajudar</a>
+            <a href="https://www.vakinha.com.br/doacoes" class="dropdown-item">Fazer doação</a>
+            <a href="https://www.vakinha.com.br/pix" class="dropdown-item">Pagar via PIX</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown" id="nav-descubra">
+          <button class="nav-btn" id="btn-descubra">Descubra <span class="arrow">▾</span></button>
+          <div class="dropdown-menu" id="dropdown-descubra">
+            <a href="https://www.vakinha.com.br/vaquinhas/explore" class="dropdown-item">Explorar vaquinhas</a>
+            <a href="https://www.vakinha.com.br/vaquinhas/mais-amadas" class="dropdown-item">Vaquinhas mais amadas</a>
+            <a href="https://www.vakinha.com.br/vakinha-premiada" class="dropdown-item">Vakinha Premiada</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown" id="nav-como-funciona">
+          <button class="nav-btn" id="btn-como-funciona">Como funciona <span class="arrow">▾</span></button>
+          <div class="dropdown-menu" id="dropdown-como-funciona">
+            <a href="https://www.vakinha.com.br/como-funciona" class="dropdown-item">Como funciona</a>
+            <a href="https://www.vakinha.com.br/taxas-e-prazos" class="dropdown-item">Taxas e prazos</a>
+            <a href="https://www.vakinha.com.br/duvidas-frequentes" class="dropdown-item">Dúvidas frequentes</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header-actions" id="header-actions">
+        <button class="search-btn" id="btn-buscar-header" aria-label="Buscar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span>Buscar</span>
+        </button>
+        <a href="https://www.vakinha.com.br/users/sign_in" class="minha-conta-link" id="link-minha-conta">Minha
+          conta</a>
+        <a href="https://www.vakinha.com.br/criar-vaquinha" class="btn-cria-vaquinha" id="btn-cria-vaquinha-header">Faz
+          uma vaquinha!</a>
+      </div>
+
+      <!-- Mobile: lupa + hamburger -->
+      <div class="mobile-header-right">
+        <button class="mobile-search-btn" id="btn-buscar-mobile" aria-label="Buscar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#31B475" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <button class="hamburger-btn" id="btn-hamburger" aria-label="Menu">
+          <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect y="0" width="26" height="3" rx="1.5" fill="#555" />
+            <rect y="8.5" width="26" height="3" rx="1.5" fill="#555" />
+            <rect y="17" width="26" height="3" rx="1.5" fill="#555" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Barra de pesquisa inline -->
+    <div class="search-bar-overlay" id="search-bar-overlay" role="search" aria-hidden="true">
+      <div class="search-bar-inner">
+        <svg class="search-bar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#31B475"
+          stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        <input type="search" id="search-bar-input" class="search-bar-input" placeholder="Buscar vaquinhas..."
+          autocomplete="off" aria-label="Buscar vaquinhas">
+        <button class="search-bar-close" id="search-bar-close" aria-label="Fechar busca">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="https://www.vakinha.com.br/como-ajudar" class="mobile-menu-item" id="mobile-como-ajudar">Como ajudar</a>
+      <a href="https://www.vakinha.com.br/vaquinhas/explore" class="mobile-menu-item" id="mobile-descubra">Descubra</a>
+      <a href="https://www.vakinha.com.br/como-funciona" class="mobile-menu-item" id="mobile-como-funciona">Como
+        funciona</a>
+      <a href="https://www.vakinha.com.br/users/sign_in" class="mobile-menu-item" id="mobile-minha-conta">Minha
+        conta</a>
+      <a href="https://www.vakinha.com.br/criar-vaquinha" class="mobile-menu-item mobile-menu-cta"
+        id="mobile-cria-vaquinha">Faz uma vaquinha!</a>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="container">
+      <div class="page-layout">
+
+        <!-- LEFT COLUMN -->
+        <div class="content-col">
+
+          <!-- Campaign Image -->
+          <div class="campaign-image-wrap" id="campaign-image-wrap">
+            <img src="assets/campaign-hero.jpg" alt="Destruição causada pelas chuvas na Zona da Mata - MG"
+              class="campaign-image" id="campaign-image" />
+            <button class="img-heart-btn" id="btn-heart-image" aria-label="Curtir">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Campaign Info -->
+          <div class="campaign-info">
+            <p class="campaign-category" id="campaign-category">TRAGÉDIAS / DESASTRES / ACIDENTES</p>
+            <h1 class="campaign-title" id="campaign-title">AJUDA HUMANITÁRIA | ZONA DA MATA - MG</h1>
+            <p class="campaign-id" id="campaign-id">ID: 5971177</p>
+
+            <!-- Mobile: valor arrecadado logo após ID -->
+            <div class="mobile-donation-stats" id="mobile-donation-stats">
+              <div class="mobile-progress-bar-wrap">
+                <div class="mobile-progress-bar" style="width:86%"></div>
+              </div>
+              <div class="mobile-amount-row">
+                <span class="mobile-amount-value">R$ 3.443.885,10</span>
+                <span class="mobile-amount-meta">de R$ 4.000.000,00</span>
+              </div>
+              <div class="mobile-stats-box">
+                <div class="mobile-stat-row">
+                  <span>Corações Recebidos <span style="color:#31B475">♥</span></span>
+                  <strong>37.739</strong>
+                </div>
+                <div class="mobile-stat-row">
+                  <span>Apoiadores</span>
+                  <strong>48.456</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="campaign-description-short" id="campaign-description-short">
+              <p>As fortes chuvas que atingiram a Zona da Mata mineira deixaram milhares de famílias em situação de
+                emergência. Os dados atuais contam cerca de 3.500 famílias desalojadas, 49 mortos e várias pessoas
+                desaparecidas. Diante desse cenário, estamos promovendo esta mobilização solidária para apoiar a atuação
+                da <strong>Cruz Vermelha Brasileira</strong> que está atuando nas ações emergenciais. <a
+                  href="#sobre-content" class="ver-tudo-link" id="link-ver-tudo">ver tudo</a></p>
+            </div>
+
+            <!-- Selos -->
+            <div class="seals-row" id="seals-row">
+              <div class="seals-icons">
+                <span class="seal-icon seal-green" title="Vakinha Verificada">✓</span>
+                <span class="seal-icon seal-orange" title="Meta Atingida">★</span>
+                <span class="seal-icon seal-red" title="Urgente">!</span>
+                <span class="seal-icon seal-blue" title="Cruz Vermelha">♥</span>
+                <span class="seal-icon seal-pink" title="Premiada">♦</span>
+              </div>
+              <a href="#selos-recebidos" class="ver-selos-link" id="link-ver-selos">Ver selos</a>
+            </div>
+          </div>
+
+          <!-- MOBILE: organizer only (no progress card; stats shown above) -->
+          <div class="mobile-organizer-only" id="mobile-organizer-only">
+            <div class="organizer-card" id="organizer-card-mobile">
+              <div class="organizer-avatar" id="organizer-avatar-mobile">NF</div>
+              <div class="organizer-info">
+                <strong id="organizer-name-mobile">Nikolas Ferreira</strong>
+                <span id="organizer-since-mobile">Ativo(a) desde outubro/2019</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABS -->
+          <div class="tabs-wrap" id="tabs-wrap">
+            <div class="tabs" id="tabs" role="tablist">
+              <button class="tab-btn active" id="tab-sobre" role="tab" data-tab="sobre">Sobre</button>
+              <button class="tab-btn" id="tab-atualizacoes" role="tab" data-tab="atualizacoes">Atualizações</button>
+              <button class="tab-btn" id="tab-quem-ajudou" role="tab" data-tab="quem-ajudou">Quem ajudou</button>
+              <button class="tab-btn" id="tab-premiada" role="tab" data-tab="premiada">Vakinha Premiada</button>
+              <button class="tab-btn" id="tab-selos" role="tab" data-tab="selos-recebidos">Selos recebidos</button>
+            </div>
+
+            <!-- Tab: Sobre -->
+            <div class="tab-content active" id="tab-content-sobre">
+              <!-- PIX Banner -->
+              <div class="pix-banner" id="pix-banner">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="#31B475">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                  <polyline points="2 17 12 22 22 17" />
+                  <polyline points="2 12 12 17 22 12" />
+                </svg>
+                <span>Você pode ajudar via Pix usando a chave: <strong
+                    id="pix-chave">5971177@vakinha.com.br</strong></span>
+                <button class="btn-copiar-pix" id="btn-copiar-pix-top" title="Copiar chave PIX">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Campaign content -->
+              <div class="sobre-content" id="sobre-content">
+                <p class="sobre-date"><strong>Vaquinha criada em:</strong> 26/02/2026</p>
+
+                <p>As fortes chuvas que atingiram a Zona da Mata mineira deixaram milhares de famílias em situação de
+                  emergência.</p>
+
+                <p>Os dados atuais contam cerca de <strong>3.500 famílias desalojadas, 49 mortos</strong> e várias
+                  pessoas desaparecidas.</p>
+
+                <p>Diante desse cenário, estamos promovendo esta mobilização solidária para apoiar a atuação da
+                  <strong>Cruz Vermelha Brasileira que está atuando</strong> nas ações emergenciais.
+                </p>
+              </div>
+
+              <!-- Saiba Mais -->
+              <div class="saiba-mais-section" id="saiba-mais-section">
+                <h2 class="saiba-mais-title">Tudo o que você precisa saber sobre o Vakinha</h2>
+                <div class="pix-card" id="pix-card">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#555">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                    <polyline points="2 17 12 22 22 17" />
+                    <polyline points="2 12 12 17 22 12" />
+                  </svg>
+                  <div class="pix-card-text">
+                    <p>Você também pode <strong>contribuir via Pix usando a chave:</strong> 5971177@vakinha.com.br</p>
+                    <button class="btn-copiar-pix" id="btn-copiar-pix-card">
+                      Copiar
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- FAQ Acordeão -->
+                <div class="faq-section" id="faq-section">
+                  <div class="faq-item" id="faq-1">
+                    <button class="faq-question" onclick="toggleFaq('faq-1')">
+                      <span>Como ajudar Nikolas Ferreira</span>
+                      <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Você pode ajudar Nikolas Ferreira de diversas formas: fazendo uma doação diretamente nesta
+                        página clicando em "Quero Ajudar", compartilhando esta vaquinha nas suas redes sociais para
+                        alcançar mais pessoas, ou contribuindo via PIX usando a chave
+                        <strong>5971177@vakinha.com.br</strong>.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="faq-item" id="faq-2">
+                    <button class="faq-question" onclick="toggleFaq('faq-2')">
+                      <span>Quando a Vakinha foi criada</span>
+                      <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Esta vaquinha foi criada em <strong>26 de fevereiro de 2026</strong>, logo após as fortes
+                        chuvas que atingiram a Zona da Mata mineira, deixando milhares de famílias em situação de
+                        emergência.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item" id="faq-3">
+                    <button class="faq-question" onclick="toggleFaq('faq-3')">
+                      <span>Qual a meta da vaquinha</span>
+                      <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>A meta atual desta vaquinha é de <strong>R$ 4.000.000,00</strong>. A meta foi sendo ampliada
+                        conforme a arrecadação crescia, partindo de R$ 1.000,00 e sendo ajustada várias vezes para
+                        atender às crescentes necessidades das vítimas.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item" id="faq-4">
+                    <button class="faq-question" onclick="toggleFaq('faq-4')">
+                      <span>Como ajudar via PIX</span>
+                      <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Para ajudar via PIX, utilize a chave de e-mail: <strong>5971177@vakinha.com.br</strong>. Copie
+                        a chave, abra o app do seu banco, escolha PIX e cole a chave. Sua doação é direcionada
+                        diretamente para a campanha.</p>
+                    </div>
+                  </div>
+                  <div class="faq-item" id="faq-5">
+                    <button class="faq-question" onclick="toggleFaq('faq-5')">
+                      <span>Quanto a Vakinha arrecadou</span>
+                      <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                      </svg>
+                    </button>
+                    <div class="faq-answer">
+                      <p>Até o momento, esta vaquinha arrecadou <strong>R$ 3.443.885,10</strong>, o equivalente a
+                        <strong>86%</strong> da meta de R$ 4.000.000,00. Mais de <strong>48.456 apoiadores</strong> já
+                        contribuíram. Doe agora e faça parte desta corrente do bem!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Denunciar -->
+              <div class="denunciar-section" id="denunciar-section">
+                <a href="https://www.vakinha.com.br/vaquinha/ajuda-humanitaria-zona-da-mata-mg/denuncie"
+                  class="denunciar-link" id="link-denunciar">Denunciar essa vaquinha</a>
+                <p class="aviso-legal" id="aviso-legal">AVISO LEGAL: O texto e as imagens incluídos nessa página são de
+                  única e exclusiva responsabilidade do criador da vaquinha e não representam a opinião ou endosso da
+                  plataforma Vakinha.</p>
+              </div>
+            </div>
+
+            <!-- Tab: Atualizações -->
+            <div class="tab-content" id="tab-content-atualizacoes">
+              <div class="atualizacoes-list">
+                <div class="atualizacao-item">
+                  <div class="atualizacao-icon">🎯</div>
+                  <div class="atualizacao-body">
+                    <p class="atualizacao-time">Há 4 horas</p>
+                    <p class="atualizacao-text">Meta alterada de <strong>R$ 3.000.000,00</strong> para <strong>R$
+                        4.000.000,00</strong>.</p>
+                  </div>
+                </div>
+                <div class="atualizacao-item">
+                  <div class="atualizacao-icon">🎯</div>
+                  <div class="atualizacao-body">
+                    <p class="atualizacao-time">Há 8 horas</p>
+                    <p class="atualizacao-text">Meta alterada de <strong>R$ 2.500.000,00</strong> para <strong>R$
+                        3.000.000,00</strong>.</p>
+                  </div>
+                </div>
+                <div class="atualizacao-item">
+                  <div class="atualizacao-icon">🎯</div>
+                  <div class="atualizacao-body">
+                    <p class="atualizacao-time">Há 12 horas</p>
+                    <p class="atualizacao-text">Meta alterada de <strong>R$ 2.000.000,00</strong> para <strong>R$
+                        2.500.000,00</strong>.</p>
+                  </div>
+                </div>
+                <div class="atualizacao-item">
+                  <div class="atualizacao-icon">🎯</div>
+                  <div class="atualizacao-body">
+                    <p class="atualizacao-time">Há 16 horas</p>
+                    <p class="atualizacao-text">Meta alterada de <strong>R$ 1.500.000,00</strong> para <strong>R$
+                        2.000.000,00</strong>.</p>
+                  </div>
+                </div>
+                <div class="atualizacao-item">
+                  <div class="atualizacao-icon">🎯</div>
+                  <div class="atualizacao-body">
+                    <p class="atualizacao-time">Ontem</p>
+                    <p class="atualizacao-text">Meta alterada de <strong>R$ 1.000.000,00</strong> para <strong>R$
+                        1.500.000,00</strong>.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Quem ajudou -->
+            <div class="tab-content" id="tab-content-quem-ajudou">
+              <div class="quem-ajudou-list">
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#e57373">TU</div>
+                  <div class="apoiador-info"><strong>TÚLIO</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#64b5f6">LF</div>
+                  <div class="apoiador-info"><strong>LEONARDO F.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#81c784">KA</div>
+                  <div class="apoiador-info"><strong>Katia</strong><span>"Que Deus continue nos ajudando a ajudar a quem
+                      precisar mais."</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#ffb74d">DI</div>
+                  <div class="apoiador-info"><strong>DELANO I.</strong><span>Deu corações ♥</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#ba68c8">ER</div>
+                  <div class="apoiador-info"><strong>ELIANE R.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#4db6ac">SV</div>
+                  <div class="apoiador-info"><strong>Sandra V.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#f06292">AM</div>
+                  <div class="apoiador-info"><strong>Andressa M.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#a1887f">MA</div>
+                  <div class="apoiador-info"><strong>MARIA</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#90a4ae">PL</div>
+                  <div class="apoiador-info"><strong>PALAZZO L.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#4fc3f7">SO</div>
+                  <div class="apoiador-info"><strong>Sônia</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#aed581">EG</div>
+                  <div class="apoiador-info"><strong>Erica G.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#ff8a65">RJ</div>
+                  <div class="apoiador-info"><strong>ROSANA J.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#7986cb">RF</div>
+                  <div class="apoiador-info"><strong>Roberson F.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#4dd0e1">CL</div>
+                  <div class="apoiador-info"><strong>Cláudia L.</strong><span>Contribuiu</span></div>
+                </div>
+                <div class="apoiador-item">
+                  <div class="apoiador-avatar" style="background:#f48fb1">KC</div>
+                  <div class="apoiador-info"><strong>Kyara C.</strong><span>Contribuiu</span></div>
+                </div>
+              </div>
+              <p class="quem-ajudou-total">e mais <strong>48.441</strong> apoiadores...</p>
+            </div>
+
+            <!-- Tab: Vakinha Premiada -->
+            <div class="tab-content" id="tab-content-premiada">
+              <div class="premiada-content">
+                <div class="premiada-header">
+                  <span class="premiada-badge">🏆</span>
+                  <h3>Vakinha Premiada</h3>
+                  <p>Cada ação nesta vaquinha gera números da sorte para concorrer a <strong>R$ 15.000,00
+                      mensais</strong>!</p>
+                </div>
+                <div class="premiada-stats">
+                  <div class="premiada-stat">
+                    <strong>39.812</strong>
+                    <span>pessoas receberam números da sorte ao doar</span>
+                  </div>
+                  <div class="premiada-stat">
+                    <strong>7.524</strong>
+                    <span>doadores turbinaram a doação para ganhar números extras</span>
+                  </div>
+                  <div class="premiada-stat">
+                    <strong>7.814</strong>
+                    <span>pessoas compraram corações para destacar a campanha</span>
+                  </div>
+                  <div class="premiada-stat">
+                    <strong>3.714</strong>
+                    <span>doações ainda não tiveram seus números resgatados</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Selos recebidos -->
+            <div class="tab-content" id="tab-content-selos-recebidos">
+              <div class="all-seals-grid" id="all-seals-grid">
+                <div class="seal-item selo-conquista">
+                  <span class="seal-icon seal-green lg">♥</span>
+                  <p>Recebeu 5.000 corações</p>
+                </div>
+                <div class="seal-item selo-conquista">
+                  <span class="seal-icon seal-orange lg">♥</span>
+                  <p>Recebeu 10.000 corações</p>
+                </div>
+                <div class="seal-item selo-conquista">
+                  <span class="seal-icon seal-red lg">♥</span>
+                  <p>Recebeu 15.000 corações</p>
+                </div>
+                <div class="seal-item selo-conquista">
+                  <span class="seal-icon seal-blue lg">♥</span>
+                  <p>Recebeu 20.000 corações</p>
+                </div>
+                <div class="seal-item selo-conquista">
+                  <span class="seal-icon seal-pink lg">⭐</span>
+                  <p>Mais amada das últimas 24h</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (Sidebar) -->
+        <aside class="sidebar" id="sidebar">
+          <div class="progress-card" id="progress-card">
+            <p class="arrecadado-label" id="arrecadado-label">Arrecadado</p>
+            <div class="progress-amount" id="progress-amount">R$ 3.299.574,46</div>
+            <div class="progress-meta" id="progress-meta">de R$ 4.000.000,00</div>
+            <div class="progress-bar-wrap" id="progress-bar-wrap">
+              <div class="progress-bar" id="progress-bar" style="width: 82%"></div>
+            </div>
+            <div class="progress-stats" id="progress-stats">
+              <div class="stat-row">
+                <span>Corações Recebidos <span class="heart-icon">♥</span></span>
+                <strong id="stat-coracoes">35606</strong>
+              </div>
+              <div class="stat-row">
+                <span>Apoiadores</span>
+                <strong id="stat-apoiadores">46167</strong>
+              </div>
+            </div>
+            <a href="contribua.html" class="btn-quero-ajudar" id="btn-quero-ajudar">Quero Ajudar</a>
+            <button class="btn-compartilhar" id="btn-compartilhar">Compartilhar</button>
+            <div class="doacao-protegida" id="doacao-protegida">
+              <svg class="shield-icon" width="14" height="14" viewBox="0 0 24 24" fill="#31B475">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              DOAÇÃO PROTEGIDA
+            </div>
+          </div>
+
+          <div class="organizer-card" id="organizer-card">
+            <div class="organizer-avatar" id="organizer-avatar">NF</div>
+            <div class="organizer-info">
+              <strong id="organizer-name">Nikolas Ferreira</strong>
+              <span id="organizer-since">Ativo(a) desde outubro/2019</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Outras histórias -->
+      <section class="outras-historias" id="outras-historias">
+        <h2 class="section-title" id="outras-historias-title">Outras histórias também precisam de você!</h2>
+        <div class="cards-grid" id="cards-grid">
+
+          <div class="campaign-card" id="card-1">
+            <div class="card-image-wrap">
+              <img src="assets/sos-minas.jpg" alt="SOS Minas Gerais" class="card-image" id="card-img-1">
+              <button class="card-heart-btn" id="card-heart-1" aria-label="Curtir">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card-title-1">SOS Minas Gerais</h3>
+              <p class="card-amount" id="card-amount-1">R$ 562.591,08 <span class="card-meta-text">de 1 mi</span></p>
+              <div class="card-bar-wrap">
+                <div class="card-bar" style="width: 56%"></div>
+              </div>
+              <p class="card-hearts" id="card-hearts-1">4945 corações recebidos <span class="heart-icon red">♥</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="campaign-card" id="card-2">
+            <div class="card-image-wrap">
+              <img src="assets/sos-uba.jpg" alt="S.O.S UBÁ" class="card-image" id="card-img-2">
+              <button class="card-heart-btn" id="card-heart-2" aria-label="Curtir">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card-title-2">S.O.S UBÁ</h3>
+              <p class="card-amount" id="card-amount-2">R$ 154.401,75 <span class="card-meta-text">de 500 mil</span></p>
+              <div class="card-bar-wrap">
+                <div class="card-bar" style="width: 31%"></div>
+              </div>
+              <p class="card-hearts" id="card-hearts-2">1086 corações recebidos <span class="heart-icon red">♥</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="campaign-card" id="card-3">
+            <div class="card-image-wrap">
+              <img src="assets/rogeria.jpg" alt="Ajuda para Rogéria, Fred e Julia" class="card-image" id="card-img-3">
+              <button class="card-heart-btn" id="card-heart-3" aria-label="Curtir">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card-title-3">Ajuda para Rogéria, Fred e Julia</h3>
+              <p class="card-amount" id="card-amount-3">R$ 104.141,14 <span class="card-meta-text">de 80 mil</span></p>
+              <div class="card-bar-wrap">
+                <div class="card-bar" style="width: 100%"></div>
+              </div>
+              <p class="card-hearts" id="card-hearts-3">642 corações recebidos <span class="heart-icon red">♥</span></p>
+            </div>
+          </div>
+
+          <div class="campaign-card" id="card-4">
+            <div class="card-image-wrap">
+              <img src="assets/flavio.jpg" alt="Ajuda no preparo, translado e documentos" class="card-image"
+                id="card-img-4">
+              <button class="card-heart-btn" id="card-heart-4" aria-label="Curtir">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+              </button>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card-title-4">Ajuda no preparo, translado e documentos</h3>
+              <p class="card-amount" id="card-amount-4">R$ 78.336,58 <span class="card-meta-text">de 70 mil</span></p>
+              <div class="card-bar-wrap">
+                <div class="card-bar" style="width: 100%"></div>
+              </div>
+              <p class="card-hearts" id="card-hearts-4">547 corações recebidos <span class="heart-icon red">♥</span></p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo-col">
+          <a href="/" class="footer-logo-link" id="footer-logo-link">
+            <svg width="120" height="32" viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="6" fill="#31B475" />
+              <path d="M10 10 L19 28 L28 10" stroke="white" stroke-width="3.5" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+              <text x="46" y="26" font-family="Nunito, sans-serif" font-weight="800" font-size="20"
+                fill="white">vakinha</text>
+            </svg>
+          </a>
+          <div class="social-links" id="social-links">
+            <a href="https://www.instagram.com/vakinha" class="social-link" id="social-instagram" aria-label="Instagram"
+              target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/vakinha" class="social-link" id="social-facebook" aria-label="Facebook"
+              target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/vakinha" class="social-link" id="social-youtube" aria-label="YouTube"
+              target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
+                <polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/vakinha" class="social-link" id="social-twitter" aria-label="X (Twitter)"
+              target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://www.vakinha.com.br" class="social-link" id="social-site" aria-label="Site" target="_blank"
+              rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links-col" id="footer-col-links1">
+          <h4 class="footer-col-title">Links rápidos</h4>
+          <ul>
+            <li><a href="https://www.vakinha.com.br/quem-somos" id="footer-quem-somos">Quem somos</a></li>
+            <li><a href="https://www.vakinha.com.br/vaquinhas" id="footer-vaquinhas">Vaquinhas</a></li>
+            <li><a href="https://www.vakinha.com.br/criar-vaquinha" id="footer-criar-vaquinhas">Criar vaquinhas</a></li>
+            <li><a href="https://www.vakinha.com.br/users/sign_in" id="footer-login">Login</a></li>
+            <li><a href="https://www.vakinha.com.br/vaquinhas/mais-amadas" id="footer-mais-amadas">Vaquinhas mais
+                amadas</a></li>
+            <li><a href="https://www.vakinha.com.br/politica-de-privacidade" id="footer-privacidade">Política de
+                privacidade</a></li>
+            <li><a href="https://www.vakinha.com.br/termos-de-uso" id="footer-termos">Termos de uso</a></li>
+            <li><a href="https://www.vakinha.com.br/verificacao-de-links" id="footer-verificacao">Verificação de
+                links</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col" id="footer-col-links2">
+          <ul style="margin-top: 1.5rem;">
+            <li><a href="https://www.vakinha.com.br/duvidas-frequentes" id="footer-duvidas">Dúvidas frequentes</a></li>
+            <li><a href="https://www.vakinha.com.br/taxas-e-prazos" id="footer-taxas">Taxas e prazos</a></li>
+            <li><a href="https://www.vakinha.com.br/loja-de-coracoes" id="footer-loja">Loja de corações</a></li>
+            <li><a href="https://www.vakinha.com.br/vakinha-premiada" id="footer-premiada">Vakinha Premiada</a></li>
+            <li><a href="https://blog.vakinha.com.br" id="footer-blog">Blog do Vakinha</a></li>
+            <li><a href="https://blog.vakinha.com.br/mapa" id="footer-mapa">Mapa de posts do blog</a></li>
+            <li><a href="https://www.vakinha.com.br/seguranca-e-transparencia" id="footer-seguranca">Segurança e
+                transparência</a></li>
+            <li><a href="https://www.vakinha.com.br/busca-por-recibo" id="footer-recibo">Busca por recibo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact-col" id="footer-col-contato">
+          <h4 class="footer-col-title footer-col-title-green">Fale conosco</h4>
+          <ul>
+            <li><a href="https://www.vakinha.com.br/fale-conosco" id="footer-fale-conosco">Clique aqui para falar
+                conosco</a></li>
+            <li class="footer-horario">De Segunda à Sexta<br>Das 9:30 às 17:00</li>
+          </ul>
+          <div class="selo-seguranca" id="selo-seguranca">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#31B475">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            <span>SELO DE<br>SEGURANÇA</span>
+          </div>
+        </div>
+
+        <div class="footer-app-col" id="footer-col-app">
+          <h4 class="footer-col-title footer-col-title-green">Baixe nosso App</h4>
+          <div class="app-badges" id="app-badges">
+            <a href="https://play.google.com/store/apps/details?id=com.vakinha" class="app-badge" id="badge-google-play"
+              target="_blank" rel="noopener">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/320px-Google_Play_Store_badge_EN.svg.png"
+                alt="Disponível no Google Play" width="140">
+            </a>
+            <a href="https://apps.apple.com/br/app/vakinha/id1234567890" class="app-badge" id="badge-app-store"
+              target="_blank" rel="noopener">
+              <img
+                src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                alt="Baixar na App Store" width="140">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom" id="footer-bottom">
+        <p>© 2026 - Todos direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SHARE MODAL -->
+  <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal" id="share-modal">
+      <div class="modal-header">
+        <h3 id="modal-title">Compartilhar</h3>
+        <button class="modal-close" id="btn-modal-close" aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <p class="modal-desc">Compartilhe esta vaquinha e ajude mais pessoas a contribuir!</p>
+        <div class="share-options" id="share-options">
+          <a href="https://api.whatsapp.com/send?text=Ajude%20a%20Zona%20da%20Mata%20MG!%20https://www.vakinha.com.br/vaquinha/ajuda-humanitaria-zona-da-mata-mg"
+            class="share-btn share-whatsapp" id="share-whatsapp" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+            </svg>
+            WhatsApp
+          </a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.vakinha.com.br/vaquinha/ajuda-humanitaria-zona-da-mata-mg"
+            class="share-btn share-facebook" id="share-facebook" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+            Facebook
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=https://www.vakinha.com.br/vaquinha/ajuda-humanitaria-zona-da-mata-mg&text=Ajude%20a%20Zona%20da%20Mata%20MG!"
+            class="share-btn share-twitter" id="share-twitter" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            X (Twitter)
+          </a>
+          <button class="share-btn share-copy" id="share-copy-link">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+            Copiar link
+          </button>
+        </div>
+        <div class="copy-feedback" id="copy-feedback" style="display:none;">✓ Link copiado!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast-notification" role="alert" aria-live="polite"></div>
+
+  <!-- MOBILE: Barra inferior fixa -->
+  <div class="mobile-bottom-bar" id="mobile-bottom-bar">
+    <div class="mobile-bottom-inner">
+      <div class="mobile-bottom-badge">
+        <svg class="shield-icon" width="14" height="14" viewBox="0 0 24 24" fill="#31B475">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        DOAÇÃO PROTEGIDA
+      </div>
+      <a href="contribua.html" class="mobile-btn-quero-ajudar" id="mobile-bottom-quero-ajudar">Quero Ajudar</a>
+      <button class="mobile-btn-compartilhar" id="mobile-bottom-compartilhar"
+        onclick="document.getElementById('modal-overlay').classList.add('active')">Compartilhar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

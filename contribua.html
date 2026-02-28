@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contribuir | Ajuda Humanitária Zona da Mata - MG | Vakinha</title>
+    <meta name="description" content="Faça sua contribuição para a vaquinha Ajuda Humanitária Zona da Mata - MG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="contribua.css">
+    <link rel="stylesheet" href="pix-modal.css">
+    <!-- Biblioteca para geração do QR Code PIX a partir do código EMV -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+
+<body class="contribua-page">
+
+    <!-- HEADER (igual ao index) -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-link" id="logo-link">
+                <img src="assets/logo-vakinha-original.webp" alt="Vakinha" id="logo-img" style="height:38px;width:auto">
+            </a>
+
+            <nav class="nav-desktop" id="nav-desktop">
+                <div class="nav-item dropdown" id="nav-como-ajudar">
+                    <button class="nav-btn" id="btn-como-ajudar">Como ajudar <span class="arrow">▾</span></button>
+                    <div class="dropdown-menu" id="dropdown-como-ajudar">
+                        <a href="https://www.vakinha.com.br/como-ajudar" class="dropdown-item">Como ajudar</a>
+                        <a href="#" class="dropdown-item">Fazer doação</a>
+                        <a href="#" class="dropdown-item">Pagar via PIX</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown" id="nav-descubra">
+                    <button class="nav-btn" id="btn-descubra">Descubra <span class="arrow">▾</span></button>
+                    <div class="dropdown-menu" id="dropdown-descubra">
+                        <a href="https://www.vakinha.com.br/vaquinhas/explore" class="dropdown-item">Explorar
+                            vaquinhas</a>
+                        <a href="https://www.vakinha.com.br/vaquinhas/mais-amadas" class="dropdown-item">Vaquinhas mais
+                            amadas</a>
+                        <a href="https://www.vakinha.com.br/vakinha-premiada" class="dropdown-item">Vakinha Premiada</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown" id="nav-como-funciona">
+                    <button class="nav-btn" id="btn-como-funciona">Como funciona <span class="arrow">▾</span></button>
+                    <div class="dropdown-menu" id="dropdown-como-funciona">
+                        <a href="https://www.vakinha.com.br/como-funciona" class="dropdown-item">Como funciona</a>
+                        <a href="https://www.vakinha.com.br/taxas-e-prazos" class="dropdown-item">Taxas e prazos</a>
+                        <a href="https://www.vakinha.com.br/duvidas-frequentes" class="dropdown-item">Dúvidas
+                            frequentes</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="header-actions" id="header-actions">
+                <button class="search-btn" id="btn-buscar-header" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Buscar</span>
+                </button>
+                <a href="https://www.vakinha.com.br/users/sign_in" class="minha-conta-link">Minha conta</a>
+                <a href="https://www.vakinha.com.br/criar-vaquinha" class="btn-cria-vaquinha">Faz uma vaquinha!</a>
+            </div>
+
+            <div class="mobile-header-right">
+                <button class="mobile-search-btn" aria-label="Buscar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#31B475" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+                <button class="hamburger-btn" id="btn-hamburger" aria-label="Menu">
+                    <svg width="26" height="20" viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0" width="26" height="3" rx="1.5" fill="#555" />
+                        <rect y="8.5" width="26" height="3" rx="1.5" fill="#555" />
+                        <rect y="17" width="26" height="3" rx="1.5" fill="#555" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de pesquisa inline -->
+        <div class="search-bar-overlay" id="search-bar-overlay" role="search" aria-hidden="true">
+            <div class="search-bar-inner">
+                <svg class="search-bar-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#31B475"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="search" id="search-bar-input" class="search-bar-input" placeholder="Buscar vaquinhas..."
+                    autocomplete="off" aria-label="Buscar vaquinhas">
+                <button class="search-bar-close" id="search-bar-close" aria-label="Fechar busca">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="https://www.vakinha.com.br/como-ajudar" class="mobile-menu-item">Como ajudar</a>
+            <a href="https://www.vakinha.com.br/vaquinhas/explore" class="mobile-menu-item">Descubra</a>
+            <a href="https://www.vakinha.com.br/como-funciona" class="mobile-menu-item">Como funciona</a>
+            <a href="https://www.vakinha.com.br/users/sign_in" class="mobile-menu-item">Minha conta</a>
+            <a href="https://www.vakinha.com.br/criar-vaquinha" class="mobile-menu-item mobile-menu-cta">Faz uma
+                vaquinha!</a>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="contribua-main">
+        <div class="contribua-container">
+
+            <!-- Breadcrumb / Campanha Info -->
+            <div class="camp-header" id="camp-header">
+                <a href="index.html" class="camp-back-link" id="btn-voltar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Voltar
+                </a>
+                <div class="camp-info-row">
+                    <div class="camp-thumb-wrap">
+                        <img src="assets/campaign-hero.jpg" alt="Campanha" class="camp-thumb" id="camp-thumb">
+                    </div>
+                    <div class="camp-info-text">
+                        <p class="camp-category-small">TRAGÉDIAS / DESASTRES / ACIDENTES</p>
+                        <h1 class="camp-title-small" id="camp-title">AJUDA HUMANITÁRIA | ZONA DA MATA - MG</h1>
+                        <p class="camp-id-small">ID: 5971177</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <form class="contribua-form" id="contribua-form" novalidate>
+
+                <!-- Segurança -->
+                <div class="seguranca-banner" id="seguranca-banner">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#31B475">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <span>Garantimos uma experiência <strong>segura</strong> para todos os nossos doadores.</span>
+                </div>
+
+                <!-- Dados Pessoais -->
+                <div class="form-section" id="section-dados">
+                    <h2 class="form-section-title">Seus dados</h2>
+                    <div class="form-grid">
+                        <div class="form-group" id="group-nome">
+                            <label class="form-label" for="input-nome">Nome completo <span
+                                    class="required">*</span></label>
+                            <input type="text" id="input-nome" name="nome" class="form-input"
+                                placeholder="Seu nome completo" autocomplete="name" required>
+                            <span class="field-error" id="err-nome"></span>
+                        </div>
+                        <div class="form-group" id="group-email">
+                            <label class="form-label" for="input-email">E-mail <span class="required">*</span></label>
+                            <input type="email" id="input-email" name="email" class="form-input"
+                                placeholder="seu@email.com" autocomplete="email" required>
+                            <span class="field-error" id="err-email"></span>
+                        </div>
+                        <div class="form-group" id="group-telefone">
+                            <label class="form-label" for="input-telefone">Telefone (WhatsApp) <span
+                                    class="required">*</span></label>
+                            <input type="tel" id="input-telefone" name="telefone" class="form-input"
+                                placeholder="(00) 00000-0000" autocomplete="tel" required>
+                            <span class="field-error" id="err-telefone"></span>
+                        </div>
+                        <div class="form-group" id="group-cpf">
+                            <label class="form-label" for="input-cpf">CPF <span class="required">*</span></label>
+                            <input type="text" id="input-cpf" name="cpf" class="form-input" placeholder="000.000.000-00"
+                                autocomplete="off" required maxlength="14">
+                            <span class="field-error" id="err-cpf"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Valor da Contribuição -->
+                <div class="form-section" id="section-valor">
+                    <h2 class="form-section-title">Valor da contribuição</h2>
+
+                    <!-- Botões de valor rápido -->
+                    <div class="quick-values" id="quick-values">
+                        <button type="button" class="quick-val-btn" data-value="25">R$ 25</button>
+                        <button type="button" class="quick-val-btn" data-value="50">R$ 50</button>
+                        <button type="button" class="quick-val-btn" data-value="100">R$ 100</button>
+                        <button type="button" class="quick-val-btn" data-value="200">R$ 200</button>
+                        <button type="button" class="quick-val-btn" data-value="500">R$ 500</button>
+                    </div>
+
+                    <div class="valor-input-wrap" id="valor-input-wrap">
+                        <span class="valor-prefix">R$</span>
+                        <input type="text" id="input-valor" name="valor" class="form-input valor-input"
+                            placeholder="0,00" inputmode="decimal" required>
+                    </div>
+                    <span class="field-error valor-error" id="err-valor"></span>
+                    <p class="valor-hint">Valor mínimo de contribuição: <strong>R$ 25,00</strong></p>
+                </div>
+
+                <!-- Forma de Pagamento: apenas PIX -->
+                <div class="form-section" id="section-pagamento">
+                    <h2 class="form-section-title">Forma de pagamento</h2>
+                    <div class="pix-only-wrap">
+                        <div class="pix-selected-badge">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="#31B475">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                                <polyline points="2 17 12 22 22 17" stroke="#31B475" stroke-width="2" fill="none" />
+                                <polyline points="2 12 12 17 22 12" stroke="#31B475" stroke-width="2" fill="none" />
+                            </svg>
+                            <span>Pix</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#31B475"
+                                stroke-width="2.5">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                        </div>
+                        <div class="pix-info-box" id="pix-info-box">
+                            <div>
+                                <p><strong>Pague com Pix</strong> de forma rápida e segura.</p>
+                                <p>Você receberá um QR Code para efetuar o pagamento após confirmar sua contribuição.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Turbine sua doação -->
+                <div class="form-section turbine-section" id="section-turbine">
+                    <div class="turbine-header-static">
+                        <span class="turbine-badge">TURBINE SUA DOAÇÃO</span>
+                        <span class="turbine-preco-total" id="turbine-preco-total"></span>
+                    </div>
+
+                    <div class="turbine-options" id="turbine-options">
+
+                        <!-- Opção 1: Números da sorte (Grátis) -->
+                        <label class="turbine-opt-label" for="chk-numeros">
+                            <div class="turbine-opt-card" id="turbine-card-numeros">
+                                <div class="turbine-opt-left">
+                                    <input type="checkbox" id="chk-numeros" class="turbine-chk" data-valor="0"
+                                        data-nome="5 números da sorte">
+                                    <span class="turbine-opt-icon">🍀</span>
+                                    <div class="turbine-opt-text">
+                                        <p class="turbine-opt-title"><strong>5 números da sorte</strong></p>
+                                        <p class="turbine-opt-desc">Você e quem criou a vaquinha concorrem ao sorteio de
+                                            R$
+                                            15.000,00 do Vakinha Premiada</p>
+                                    </div>
+                                </div>
+                                <span class="turbine-opt-preco gratis">Grátis</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 2: 5 corações (R$ 4,99) -->
+                        <label class="turbine-opt-label" for="chk-coracoes">
+                            <div class="turbine-opt-card" id="turbine-card-coracoes">
+                                <div class="turbine-opt-left">
+                                    <input type="checkbox" id="chk-coracoes" class="turbine-chk" data-valor="4.99"
+                                        data-nome="5 corações">
+                                    <span class="turbine-opt-icon">💚</span>
+                                    <div class="turbine-opt-text">
+                                        <p class="turbine-opt-title"><strong>5 corações</strong></p>
+                                        <p class="turbine-opt-desc">Destacam essa vaquinha na plataforma</p>
+                                    </div>
+                                </div>
+                                <span class="turbine-opt-preco">R$ 4,99</span>
+                            </div>
+                        </label>
+
+                        <!-- Opção 3: SOS Juiz de Fora (R$ 2,00) -->
+                        <label class="turbine-opt-label" for="chk-sos">
+                            <div class="turbine-opt-card" id="turbine-card-sos">
+                                <div class="turbine-opt-left">
+                                    <input type="checkbox" id="chk-sos" class="turbine-chk" data-valor="2.00"
+                                        data-nome="SOS Juiz de Fora">
+                                    <span class="turbine-opt-icon">🆘</span>
+                                    <div class="turbine-opt-text">
+                                        <p class="turbine-opt-title"><strong>SOS Juiz de Fora</strong></p>
+                                        <p class="turbine-opt-desc">Você leva ajuda urgente para quem perdeu tudo nas
+                                            chuvas
+                                            em Juiz de Fora</p>
+                                    </div>
+                                </div>
+                                <span class="turbine-opt-preco">R$ 2,00</span>
+                            </div>
+                        </label>
+
+                    </div>
+                </div>
+
+                <!-- Resumo -->
+                <div class="form-section resumo-section" id="section-resumo">
+                    <div class="resumo-row">
+                        <span>Contribuição</span>
+                        <span id="resumo-contribuicao">R$ 0,00</span>
+                    </div>
+                    <div id="turbine-resumo-items"></div>
+                    <div class="resumo-row resumo-total-row">
+                        <strong>Total</strong>
+                        <strong id="resumo-total">R$ 0,00</strong>
+                    </div>
+                </div>
+
+                <!-- LGPD -->
+                <div class="lgpd-section" id="lgpd-section">
+                    <label class="lgpd-label">
+                        <input type="checkbox" id="chk-lgpd" class="lgpd-checkbox">
+                        <span>Quero receber atualizações desta vaquinha e de outras iniciativas.</span>
+                    </label>
+                </div>
+
+                <!-- Erro global -->
+                <div class="global-error" id="global-error" style="display:none;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                    <span id="global-error-msg">Valor da contribuição deve ser no mínimo R$ 25,00</span>
+                </div>
+
+                <!-- Botão Contribuir -->
+                <button type="submit" class="btn-contribuir" id="btn-contribuir">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                    </svg>
+                    Realizar contribuição
+                </button>
+
+                <!-- Aviso legal -->
+                <div class="aviso-contribuicao" id="aviso-contribuicao">
+                    <p>Ao clicar no botão acima você declara que é maior de 18 anos, leu e está de acordo com os
+                        <a href="https://www.vakinha.com.br/termos-de-uso" target="_blank">Termos, Taxas e Prazos</a>.
+                    </p>
+                    <div class="selos-seguranca-row">
+                        <div class="selo-seg-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="#31B475">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                            <span>Doação Protegida</span>
+                        </div>
+                        <div class="selo-seg-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#31B475"
+                                stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" />
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                            </svg>
+                            <span>Pagamento Seguro</span>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- ===== MODAL PIX ===== -->
+    <div class="pix-modal-overlay" id="pix-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="pix-modal-title">
+        <div class="pix-modal-card" id="pix-modal-card">
+
+            <!-- Loader (enquanto aguarda a API) -->
+            <div class="pix-modal-loader" id="pix-modal-loader">
+                <div class="pix-spinner"></div>
+                <p>Gerando seu PIX seguro...</p>
+            </div>
+
+            <!-- Conteúdo (preenchido via JS) -->
+            <div class="pix-modal-content" id="pix-modal-content" style="display:none;">
+
+                <!-- Header -->
+                <div class="pix-modal-header">
+                    <div class="pix-success-badge">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="pix-modal-title" id="pix-modal-title">PIX gerado com sucesso!</h2>
+                        <p class="pix-modal-subtitle">Escaneie o QR Code ou copie o código para pagar</p>
+                    </div>
+                </div>
+
+                <!-- Valor -->
+                <div class="pix-modal-valor">
+                    <span class="pix-modal-valor-label">Total a pagar</span>
+                    <span class="pix-modal-valor-num" id="pix-modal-valor-num">R$ 0,00</span>
+                </div>
+
+                <!-- QR Code -->
+                <div class="pix-qr-wrap">
+                    <canvas id="pix-qr-canvas" class="pix-qr-img"></canvas>
+                    <p class="pix-qr-hint">Aponte a câmera do celular para o código acima</p>
+                </div>
+
+                <!-- Divider -->
+                <div class="pix-divider"><span>ou copie o código abaixo</span></div>
+
+                <!-- Copia e Cola -->
+                <div class="pix-copypaste-wrap">
+                    <textarea class="pix-copypaste-code" id="pix-copypaste-code" readonly rows="3"
+                        aria-label="Código PIX copia e cola"></textarea>
+                    <button class="pix-copy-btn" id="pix-copy-btn" type="button">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <rect x="9" y="9" width="13" height="13" rx="2" />
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                        </svg>
+                        <span id="pix-copy-label">Copiar código</span>
+                    </button>
+                </div>
+
+                <!-- Timer -->
+                <div class="pix-timer-wrap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>PIX expira em <strong id="pix-timer">30:00</strong></span>
+                </div>
+
+                <!-- Botão fechar -->
+                <button class="pix-modal-close-btn" id="pix-modal-close-btn" type="button">
+                    Cancelar / Voltar ao formulário
+                </button>
+            </div>
+
+            <!-- Estado de Erro -->
+            <div class="pix-modal-error" id="pix-modal-error" style="display:none;">
+                <div class="pix-error-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2.5">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                    </svg>
+                </div>
+                <h3>Não foi possível gerar o PIX</h3>
+                <p id="pix-error-msg">Verifique seus dados e tente novamente.</p>
+                <button class="pix-error-retry-btn" id="pix-error-retry-btn" type="button">Tentar novamente</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="contribua.js"></script>
+</body>
+
+</html>

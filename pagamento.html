@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX | Ajuda Humanitária Zona da Mata - MG | Vakinha</title>
+    <meta name="description"
+        content="Realize seu pagamento via PIX para a vaquinha Ajuda Humanitária Zona da Mata - MG">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pagamento.css">
+</head>
+
+<body class="pagamento-page">
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo-link" id="logo-link">
+                <img src="assets/logo-vakinha.svg" alt="Vakinha" id="logo-img" style="height:38px;width:auto">
+            </a>
+            <nav class="nav-desktop" id="nav-desktop">
+                <div class="nav-item dropdown">
+                    <button class="nav-btn">Como ajudar <span class="arrow">▾</span></button>
+                    <div class="dropdown-menu">
+                        <a href="https://www.vakinha.com.br/como-ajudar" class="dropdown-item">Como ajudar</a>
+                        <a href="#" class="dropdown-item">Fazer doação</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="nav-btn">Descubra <span class="arrow">▾</span></button>
+                    <div class="dropdown-menu">
+                        <a href="https://www.vakinha.com.br/vaquinhas/explore" class="dropdown-item">Explorar
+                            vaquinhas</a>
+                        <a href="https://www.vakinha.com.br/vakinha-premiada" class="dropdown-item">Vakinha Premiada</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="header-actions">
+                <button class="search-btn" aria-label="Buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    <span>Buscar</span>
+                </button>
+                <a href="https://www.vakinha.com.br/users/sign_in" class="minha-conta-link">Minha conta</a>
+                <a href="https://www.vakinha.com.br/criar-vaquinha" class="btn-cria-vaquinha">Faz uma vaquinha!</a>
+            </div>
+            <div class="mobile-header-right">
+                <button class="mobile-search-btn" aria-label="Buscar">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#31B475" stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </button>
+                <button class="hamburger-btn" id="btn-hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="https://www.vakinha.com.br/como-ajudar" class="mobile-menu-item">Como ajudar</a>
+            <a href="https://www.vakinha.com.br/vaquinhas/explore" class="mobile-menu-item">Descubra</a>
+            <a href="https://www.vakinha.com.br/users/sign_in" class="mobile-menu-item">Minha conta</a>
+            <a href="https://www.vakinha.com.br/criar-vaquinha" class="mobile-menu-item mobile-menu-cta">Faz uma
+                vaquinha!</a>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="pagamento-main">
+        <div class="pagamento-container">
+
+            <!-- Sucesso header -->
+            <div class="pag-success-header" id="pag-success-header">
+                <div class="pag-check-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="pag-success-title">Obrigado pela sua contribuição!</h1>
+                    <p class="pag-success-sub">Realize o pagamento via Pix para confirmar sua doação.</p>
+                </div>
+            </div>
+
+            <!-- Card principal PIX -->
+            <div class="pag-card" id="pag-card">
+
+                <!-- Resumo da doação -->
+                <div class="pag-resumo" id="pag-resumo">
+                    <div class="pag-camp-row">
+                        <img src="assets/campaign-hero.jpg" alt="Campanha" class="pag-camp-thumb" id="pag-camp-thumb">
+                        <div>
+                            <p class="pag-camp-nome" id="pag-camp-nome">AJUDA HUMANITÁRIA | ZONA DA MATA - MG</p>
+                            <p class="pag-camp-id">ID: 5971177</p>
+                        </div>
+                    </div>
+                    <div class="pag-valor-destaque">
+                        <span class="pag-valor-label">Valor da doação</span>
+                        <span class="pag-valor-num" id="pag-valor-num">R$ 0,00</span>
+                    </div>
+                    <div class="pag-doador-row" id="pag-doador-row">
+                        <div class="pag-doador-avatar" id="pag-doador-avatar">?</div>
+                        <div>
+                            <p class="pag-doador-nome" id="pag-doador-nome">Carregando...</p>
+                            <p class="pag-doador-email" id="pag-doador-email"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pag-divider"></div>
+
+                <!-- Timer -->
+                <div class="pag-timer-wrap" id="pag-timer-wrap">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e53e3e" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    <span>Este QR Code expira em <strong id="pag-timer">29:59</strong></span>
+                </div>
+
+                <!-- QR Code -->
+                <div class="pag-qr-section" id="pag-qr-section">
+                    <p class="pag-qr-instrucao">Escaneie o QR Code abaixo com o app do seu banco:</p>
+
+                    <div class="pag-qr-wrap" id="pag-qr-wrap">
+                        <!-- QR Code gerado dinamicamente pelo JS -->
+                        <div class="pag-qr-placeholder" id="pag-qr-placeholder">
+                            <div class="qr-loading-inner" id="qr-loading-inner">
+                                <div class="qr-spinner"></div>
+                                <p>Gerando QR Code...</p>
+                            </div>
+                            <canvas id="qr-canvas" class="qr-canvas" style="display:none;"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="pag-status-badge" id="pag-status-badge">
+                        <span class="status-dot"></span>
+                        Aguardando pagamento
+                    </div>
+                </div>
+
+                <div class="pag-divider"></div>
+
+                <!-- Copia e cola PIX -->
+                <div class="pag-copiacola-section" id="pag-copiacola-section">
+                    <p class="pag-copiacola-title">Ou copie o código Pix:</p>
+                    <div class="pag-copiacola-wrap">
+                        <input type="text" id="pag-pix-code" class="pag-pix-code-input" readonly value=""
+                            aria-label="Código PIX copia e cola">
+                        <button class="pag-btn-copiar" id="pag-btn-copiar" onclick="copiarPix()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg>
+                            Copiar
+                        </button>
+                    </div>
+                    <p class="pag-copiacola-hint" id="pag-copiacola-hint"></p>
+                </div>
+
+                <div class="pag-divider"></div>
+
+                <!-- Instruções passo a passo -->
+                <div class="pag-instrucoes" id="pag-instrucoes">
+                    <h3 class="pag-instrucoes-title">Como pagar com Pix:</h3>
+                    <ol class="pag-steps">
+                        <li class="pag-step">
+                            <span class="pag-step-num">1</span>
+                            <div>
+                                <p class="pag-step-title">Abra o app do seu banco</p>
+                                <p class="pag-step-desc">Acesse a opção Pix no menu principal do seu banco ou carteira
+                                    digital.</p>
+                            </div>
+                        </li>
+                        <li class="pag-step">
+                            <span class="pag-step-num">2</span>
+                            <div>
+                                <p class="pag-step-title">Escaneie o QR Code ou cole o código</p>
+                                <p class="pag-step-desc">Use a câmera para escanear o QR Code ou selecione "Pix copia e
+                                    cola" e cole o código acima.</p>
+                            </div>
+                        </li>
+                        <li class="pag-step">
+                            <span class="pag-step-num">3</span>
+                            <div>
+                                <p class="pag-step-title">Confirme o pagamento</p>
+                                <p class="pag-step-desc">Verifique os dados e confirme o valor de <strong
+                                        id="pag-step-valor">R$ 0,00</strong> para a campanha.</p>
+                            </div>
+                        </li>
+                        <li class="pag-step">
+                            <span class="pag-step-num">4</span>
+                            <div>
+                                <p class="pag-step-title">Pronto! Sua doação será processada</p>
+                                <p class="pag-step-desc">Você receberá a confirmação por e-mail assim que o pagamento
+                                    for identificado.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+            </div><!-- /pag-card -->
+
+            <!-- Segurança -->
+            <div class="pag-seguranca-row" id="pag-seguranca-row">
+                <div class="pag-seg-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#31B475">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    Doação Protegida
+                </div>
+                <div class="pag-seg-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#31B475" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" />
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                    </svg>
+                    Pagamento 100% Seguro
+                </div>
+                <div class="pag-seg-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#31B475" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.74a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    Suporte disponível
+                </div>
+            </div>
+
+            <!-- Voltar -->
+            <div class="pag-voltar-wrap">
+                <a href="contribua.html" class="pag-voltar-link">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    Voltar e alterar o valor
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast-notification" role="alert" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+    <script src="pagamento.js"></script>
+</body>
+
+</html>

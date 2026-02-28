@@ -1,0 +1,341 @@
+/* ===== PIX MODAL CSS ===== */
+
+/* Overlay de fundo */
+.pix-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(3px);
+    animation: fadeOverlay 0.25s ease;
+}
+
+.pix-modal-overlay.open {
+    display: flex;
+}
+
+@keyframes fadeOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Card central */
+.pix-modal-card {
+    background: #fff;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 440px;
+    max-height: 92vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: slideUpCard 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding: 28px 24px;
+    position: relative;
+}
+
+@keyframes slideUpCard {
+    from {
+        opacity: 0;
+        transform: translateY(32px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ─── LOADER ─── */
+.pix-modal-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 40px 0;
+    font-size: 15px;
+    color: #555;
+    font-weight: 600;
+}
+
+.pix-spinner {
+    width: 44px;
+    height: 44px;
+    border: 4px solid #e0e0e0;
+    border-top-color: #31B475;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ─── CONTENT ─── */
+
+/* Header com badge ✓ */
+.pix-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.pix-success-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #31B475;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(49, 180, 117, 0.35);
+}
+
+.pix-modal-title {
+    font-size: 17px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+}
+
+.pix-modal-subtitle {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Valor */
+.pix-modal-valor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0faf5;
+    border: 1.5px solid #b2dfdb;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+}
+
+.pix-modal-valor-label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+.pix-modal-valor-num {
+    font-size: 22px;
+    font-weight: 900;
+    color: #31B475;
+}
+
+/* QR Code */
+.pix-qr-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.pix-qr-img {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 8px;
+    object-fit: contain;
+    background: white;
+}
+
+.pix-qr-hint {
+    font-size: 12px;
+    color: #888;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Divider */
+.pix-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #bbb;
+    font-size: 12px;
+    margin: 0 0 16px;
+}
+
+.pix-divider::before,
+.pix-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8e8e8;
+}
+
+/* Código Copia e Cola */
+.pix-copypaste-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.pix-copypaste-code {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 11px;
+    font-family: 'Courier New', monospace;
+    color: #333;
+    background: #f8f8f8;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 10px;
+    resize: none;
+    line-height: 1.5;
+    word-break: break-all;
+    cursor: text;
+}
+
+.pix-copy-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px;
+    background: #31B475;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.pix-copy-btn:hover {
+    background: #28a065;
+}
+
+.pix-copy-btn:active {
+    transform: scale(0.98);
+}
+
+.pix-copy-btn.copied {
+    background: #1a7a4a;
+}
+
+/* Timer */
+.pix-timer-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 18px;
+}
+
+.pix-timer-wrap strong {
+    color: #f59e0b;
+    font-weight: 800;
+}
+
+/* Botão fechar */
+.pix-modal-close-btn {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    background: none;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    color: #888;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.pix-modal-close-btn:hover {
+    border-color: #aaa;
+    color: #555;
+}
+
+/* ─── ESTADO DE ERRO ─── */
+.pix-modal-error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 10px 10px;
+    gap: 12px;
+}
+
+.pix-error-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pix-modal-error h3 {
+    font-size: 18px;
+    font-weight: 900;
+    color: #1a1a1a;
+}
+
+.pix-modal-error p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.pix-error-retry-btn {
+    width: 100%;
+    padding: 13px;
+    background: #31B475;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.pix-error-retry-btn:hover {
+    background: #28a065;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .pix-modal-card {
+        padding: 22px 16px;
+    }
+
+    .pix-qr-img {
+        width: 170px;
+        height: 170px;
+    }
+
+    .pix-modal-valor-num {
+        font-size: 20px;
+    }
+}
