@@ -276,7 +276,7 @@
         if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; }
 
         try {
-            const resp = await fetch('http://localhost:3000/checkout', {
+            const resp = await fetch('https://api-vakinha.onrender.com/checkout', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
